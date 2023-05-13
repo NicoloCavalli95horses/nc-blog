@@ -1,6 +1,6 @@
 <template>
     <div class="logo" @click="$router.push('/')">
-      <h4>NC Blog</h4>
+      <h4>{{ '< NC />' }}</h4>
     </div>
   </template>
   
@@ -13,5 +13,8 @@
     display: grid;
     place-content: center;
     user-select: none;
+    h4 {
+      font-size: 2.8rem;
+    }
   }
   </style>
