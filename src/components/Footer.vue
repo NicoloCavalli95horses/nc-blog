@@ -90,14 +90,12 @@
 // ==============================
 // Import
 // ==============================
-import { config } from "../utils/config.js";
 import { getViewport } from "../utils/screen_size";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "./Logo.vue";
 import Btn from "./Btn.vue";
-import Carousel from "./Carousel.vue";
 
 // ==============================
 // Consts
