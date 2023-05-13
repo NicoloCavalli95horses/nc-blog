@@ -1,73 +1,176 @@
-/* color palette from <https://github.com/vuejs/theme> */
+@import url('https://fonts.googleapis.com/css?family=Signika+Negative&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  /* AUTUMN COLOR PALETTE */
+  --karry: rgb(255, 235, 210); 
+  --atomic-tangerine: rgb(255, 163, 100);
+  --crusta: rgb(252, 118, 67);
+  --apple-blossom: rgb(175, 79, 65);
+  --pickled-bluewood: rgb(39, 50, 72);
+  --darker-pickled-bluewood: rgb(27, 35, 50);
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  /* LIGHT FLAMES */
+  --quartz: #171515;
+  --cardovan: #894242;
+  --indian-red: #d55c5a;
+  --tulip: #f5918f;
+  --almond: #ebd4cc;
+  
+  /* functional references */
+  --primary: var(--crusta);
+  --secondary: var(--atomic-tangerine);
+  --footer-bg: var(--darker-pickled-bluewood);
+  --background: var(--pickled-bluewood);
+  --backdrop: rgba(255, 235, 210, 0.1);
+  --font-light: var(--karry);
+  --font-dark: var(--pickled-bluewood);
+  --white: rgb(240, 240, 255); 
+  --black: rgb(17, 17, 17);
+  --error-color: rgb(209, 44, 44);
 
-  --vt-c-indigo: #2c3e50;
+  --radius-xl: 2.6rem;
+  --radius-l: 1.8rem;
+  --radius-m: 1.2rem;
+  --radius-s: 0.6rem;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --transition-slow: 800ms;
+  --transition-medium: 400ms;
+  --transition-fast: 200ms;
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --nav-height-desktop: 10rem;
+  --nav-height-mobile: 7rem;
+
+  --box-shadow: var(--black) 0px 2rem 3rem -1rem;
+  --box-shadow-nav: var(--black) 0px 0rem 3rem -1rem;
+  --box-shadow-footer: var(--black) 0px 0rem 3rem -1rem;
 }
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
-
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
-    --color-background-mute: var(--vt-c-black-mute);
-
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-  }
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
   margin: 0;
-  font-weight: normal;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+
+/* Root font-size: 1rem = 10px */
+html {
+  font-size: 10px;
+  overflow: hidden;
 }
 
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  position: fixed;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: 0 0;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height-desktop);
+  width: 100%;
+  height: 100vh;
+  background-color: var(--background);
+  background: 
+      linear-gradient(135deg,#0000 20.5%, var(--background) 0 29.5%,#0000 0) 0 25px,
+      linear-gradient( 45deg,#0000 8%, var(--background) 0 17%, #0000 0 58%) 50px 0,
+      linear-gradient(135deg,#0000 8%, var(--background) 0 17%, #0000 0 58%, var(--background) 0 67%,#0000 0),        
+      linear-gradient( 45deg,#0000 8%, var(--background) 0 17%, #0000 0 58%, var(--background) 0 67%,#0000 0 83%,var(--background) 0 92%,#0000 0),
+      rgba(39, 50, 72, 0.98);
+  background-size: 100px 100px;
+}
+
+nav {
+  background-color: var(--background);
+  box-shadow: var(--box-shadow-nav);
+}
+
+/* Font */
+h1, h2, h3, h5, p, ul, li, a, span, input, textarea, label, summary, details {
+  font-family: 'Quicksand', monospace;
+}
+
+h1, h3, h4 {
+  font-family: 'Signika Negative', sans-serif;
+}
+
+/* Color */
+h2, h3, h4, p, ul, li, a, span, label, summary, details {
+  color: var(--font-light);
+}
+
+h5, h6 {
+  color: var(--font-light);
+}
+
+h6 {
+  font-family: monospace;
+}
+
+/* Size */
+h1 {
+  color: var(--secondary);
+  font-size: clamp(3rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  color: var(--secondary);
+  font-size: clamp(3rem, 5vw, 4rem);
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+h5 {
+  font-size: 1.5rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+p, span, ul, li, a {
+  font-size: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Code for Firefox */
+::-moz-selection { 
+  color: var(--font-light);
+  background: var(--primary);
+}
+
+::selection {
+  color: var(--font-light);
+  background: var(--primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--font-dark);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
 }
