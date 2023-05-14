@@ -1,6 +1,6 @@
 <template>
   <div class="chip">
-    <h4>{{ text }}</h4>
+    <h5>{{ text }}</h5>
   </div>
 </template>
 
@@ -18,8 +18,8 @@ defineProps({
 .chip {
   width: max-content;
   border-radius: var(--radius-l);
-  border: 1px solid var(--font-light);
-  padding: 0.5rem 0.8rem;
-  margin: 0.4rem;
+  padding: 0.8rem 1.2rem;
+  margin: 1rem 0.4rem;
+  background-color: var(--primary);
 }
 </style>
