@@ -25,7 +25,7 @@
 // ==========================
 import { ref } from 'vue';
 import { db } from '../firebase/config';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import Btn from '../components/Btn.vue';
 import Chip from '../components/Chip.vue';
 import InputText from '../components/InputText.vue';
@@ -57,6 +57,7 @@ async function onClick() {
     title: title.value,
     body: body.value,
     tags: tags.value,
+    createdAt: serverTimestamp()
   });
   // reset form
   title.value = '';
@@ -69,15 +70,12 @@ async function onClick() {
 <style lang="scss" scoped>
 .wrapper {
   width: 100%;
-  
   h2 {
     padding: 2rem 0;
-    border-bottom: 0.5rem solid var(--primary);
+    border-bottom: 0.2rem solid var(--primary);
   }
-
   .input-wrapper {
     margin: 2rem 0 6rem 0; 
   }
-
 }
 </style>
