@@ -28,7 +28,6 @@
 // ==============================
 // Import
 // ==============================
-import { getViewport } from '../utils/screen_size'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import Logo from './Logo.vue'
@@ -37,7 +36,6 @@ import Logo from './Logo.vue'
 // Consts
 // ==============================
 library.add(fas)
-const device = getViewport()
 </script>
 
 <style lang="scss" scoped>
